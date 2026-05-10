@@ -55,6 +55,229 @@
             "locale": "zh-Hant"
           }
         }
+      },
+      "FSharp.Data/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Csv.Core": "8.1.11",
+          "FSharp.Data.Html.Core": "8.1.11",
+          "FSharp.Data.Http": "8.1.11",
+          "FSharp.Data.Json.Core": "8.1.11",
+          "FSharp.Data.Runtime.Utilities": "8.1.11",
+          "FSharp.Data.WorldBank.Core": "8.1.11",
+          "FSharp.Data.Xml.Core": "8.1.11"
+        },
+        "compile": {
+          "lib/net8.0/FSharp.Data.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FSharp.Data.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Csv.Core/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Runtime.Utilities": "8.1.11"
+        },
+        "compile": {
+          "lib/net8.0/FSharp.Data.Csv.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FSharp.Data.Csv.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Html.Core/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Csv.Core": "8.1.11",
+          "FSharp.Data.Json.Core": "8.1.11",
+          "FSharp.Data.Runtime.Utilities": "8.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/FSharp.Data.Html.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharp.Data.Html.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Http/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/FSharp.Data.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharp.Data.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Json.Core/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "8.1.11",
+          "FSharp.Data.Runtime.Utilities": "8.1.11"
+        },
+        "compile": {
+          "lib/net8.0/FSharp.Data.Json.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FSharp.Data.Json.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Runtime.Utilities/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "8.1.11"
+        },
+        "compile": {
+          "lib/net8.0/FSharp.Data.Runtime.Utilities.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FSharp.Data.Runtime.Utilities.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.WorldBank.Core/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "8.1.11",
+          "FSharp.Data.Json.Core": "8.1.11",
+          "FSharp.Data.Runtime.Utilities": "8.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/FSharp.Data.WorldBank.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharp.Data.WorldBank.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FSharp.Data.Xml.Core/8.1.11": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "8.1.11",
+          "FSharp.Data.Json.Core": "8.1.11",
+          "FSharp.Data.Runtime.Utilities": "8.1.11"
+        },
+        "compile": {
+          "lib/net8.0/FSharp.Data.Xml.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FSharp.Data.Xml.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.IO.Pipelines/10.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Text.Encodings.Web/10.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assetType": "runtime",
+            "rid": "browser"
+          },
+          "runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Text.Json/10.0.7": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Pipelines": "10.0.7",
+          "System.Text.Encodings.Web": "10.0.7"
+        },
+        "compile": {
+          "lib/net9.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/System.Text.Json.targets": {}
+        }
+      },
+      "Functions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "FSharp.Core": "9.0.303"
+        },
+        "compile": {
+          "bin/placeholder/Functions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Functions.dll": {}
+        }
       }
     }
   },
@@ -100,11 +323,313 @@
         "lib/netstandard2.1/zh-Hans/FSharp.Core.resources.dll",
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
+    },
+    "FSharp.Data/8.1.11": {
+      "sha512": "LX8srNGLQ8dnHed4OtDlBHHLVLcPPpbuF/1gCaeg6K4ibWPmZnGuYdkkS5hBmtNl4Bh60kggtBYL94ikKKW/zQ==",
+      "type": "package",
+      "path": "fsharp.data/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.8.1.11.nupkg.sha512",
+        "fsharp.data.nuspec",
+        "lib/net8.0/FSharp.Data.dll",
+        "lib/net8.0/FSharp.Data.xml",
+        "lib/netstandard2.0/FSharp.Data.dll",
+        "lib/netstandard2.0/FSharp.Data.xml",
+        "logo.png",
+        "typeproviders/fsharp41/net8.0/FSharp.Core.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Csv.Core.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Csv.Core.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.DesignTime.deps.json",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.DesignTime.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Html.Core.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Html.Core.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Http.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Http.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Json.Core.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Json.Core.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Runtime.Utilities.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Runtime.Utilities.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.WorldBank.Core.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.WorldBank.Core.xml",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Xml.Core.dll",
+        "typeproviders/fsharp41/net8.0/FSharp.Data.Xml.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Csv.Core.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Csv.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.DesignTime.deps.json",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.DesignTime.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Html.Core.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Html.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Http.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Http.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Json.Core.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Json.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Runtime.Utilities.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Runtime.Utilities.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.WorldBank.Core.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.WorldBank.Core.xml",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Xml.Core.dll",
+        "typeproviders/fsharp41/netstandard2.0/FSharp.Data.Xml.Core.xml"
+      ]
+    },
+    "FSharp.Data.Csv.Core/8.1.11": {
+      "sha512": "9803FEGDphIzcR7bzgS6yFDxGyfxnO9YFQSyy8I2MYtZlsV+aMoJTymDfL+dB/VzFe/C7U6ZAqHAG+dUtXxCoA==",
+      "type": "package",
+      "path": "fsharp.data.csv.core/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.csv.core.8.1.11.nupkg.sha512",
+        "fsharp.data.csv.core.nuspec",
+        "lib/net8.0/FSharp.Data.Csv.Core.dll",
+        "lib/net8.0/FSharp.Data.Csv.Core.xml",
+        "lib/netstandard2.0/FSharp.Data.Csv.Core.dll",
+        "lib/netstandard2.0/FSharp.Data.Csv.Core.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.Html.Core/8.1.11": {
+      "sha512": "bpsYnJydFcXkIHcNrbZD+X4mxclzjVYD3X8offddE+VBAZ8Q32+C/D2Wg8WcO41goUM+JmjaYY5pZ8+yZ4ZQCg==",
+      "type": "package",
+      "path": "fsharp.data.html.core/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.html.core.8.1.11.nupkg.sha512",
+        "fsharp.data.html.core.nuspec",
+        "lib/netstandard2.0/FSharp.Data.Html.Core.dll",
+        "lib/netstandard2.0/FSharp.Data.Html.Core.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.Http/8.1.11": {
+      "sha512": "x6Psb6v0VigXPJQUu8MNQZy4m56Mu1Qv8g+SVeKmjL7ZV+EN0jqmAYpAwEqCowbi2iBIxdRZ7Qq2lV99FG6jrw==",
+      "type": "package",
+      "path": "fsharp.data.http/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.http.8.1.11.nupkg.sha512",
+        "fsharp.data.http.nuspec",
+        "lib/netstandard2.0/FSharp.Data.Http.dll",
+        "lib/netstandard2.0/FSharp.Data.Http.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.Json.Core/8.1.11": {
+      "sha512": "XmLR4WUgnl/tnroHQdxcfwLtXNAOdJ3szIGe0y4coc7TPwMRbTy8YbC1yT3YNDeJdxMCAscTkxGI88+jefdAuQ==",
+      "type": "package",
+      "path": "fsharp.data.json.core/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.json.core.8.1.11.nupkg.sha512",
+        "fsharp.data.json.core.nuspec",
+        "lib/net8.0/FSharp.Data.Json.Core.dll",
+        "lib/net8.0/FSharp.Data.Json.Core.xml",
+        "lib/netstandard2.0/FSharp.Data.Json.Core.dll",
+        "lib/netstandard2.0/FSharp.Data.Json.Core.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.Runtime.Utilities/8.1.11": {
+      "sha512": "mU7RkmhhA/iT2ETKN5S9u1yOC6ukscJ/hkIbwS994jibCzaOccbrWq+ZkztvcbKuGHcYw41HJQUXI1K+WNDn1A==",
+      "type": "package",
+      "path": "fsharp.data.runtime.utilities/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.runtime.utilities.8.1.11.nupkg.sha512",
+        "fsharp.data.runtime.utilities.nuspec",
+        "lib/net8.0/FSharp.Data.Runtime.Utilities.dll",
+        "lib/net8.0/FSharp.Data.Runtime.Utilities.xml",
+        "lib/netstandard2.0/FSharp.Data.Runtime.Utilities.dll",
+        "lib/netstandard2.0/FSharp.Data.Runtime.Utilities.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.WorldBank.Core/8.1.11": {
+      "sha512": "ygTY2G0UbSIIW0ycBQh0gfTvSSAu7laFht2TXdx40zzpRzIqBRTU0DLyThwEey9xH2+57YUfNoGn13cPG1c1RQ==",
+      "type": "package",
+      "path": "fsharp.data.worldbank.core/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.worldbank.core.8.1.11.nupkg.sha512",
+        "fsharp.data.worldbank.core.nuspec",
+        "lib/netstandard2.0/FSharp.Data.WorldBank.Core.dll",
+        "lib/netstandard2.0/FSharp.Data.WorldBank.Core.xml",
+        "logo.png"
+      ]
+    },
+    "FSharp.Data.Xml.Core/8.1.11": {
+      "sha512": "s3q+TF0aQEZnC0E6PF8/zr26S+pXrb7ny7WNY9Xdx1Py39JQejeM7Qwoja/WKIB09oWXKw9LYMkFqkNUN0F89w==",
+      "type": "package",
+      "path": "fsharp.data.xml.core/8.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.xml.core.8.1.11.nupkg.sha512",
+        "fsharp.data.xml.core.nuspec",
+        "lib/net8.0/FSharp.Data.Xml.Core.dll",
+        "lib/net8.0/FSharp.Data.Xml.Core.xml",
+        "lib/netstandard2.0/FSharp.Data.Xml.Core.dll",
+        "lib/netstandard2.0/FSharp.Data.Xml.Core.xml",
+        "logo.png"
+      ]
+    },
+    "System.IO.Pipelines/10.0.7": {
+      "sha512": "LTxXYYKmRhPKWveYmfzuRTUnzsfY7CN+WOq6aTRgYE9vJ8BUvIWPCaSx4HxqBwXViTPSjR9cHDOVuVPuZGRR/Q==",
+      "type": "package",
+      "path": "system.io.pipelines/10.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Pipelines.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "lib/net10.0/System.IO.Pipelines.dll",
+        "lib/net10.0/System.IO.Pipelines.xml",
+        "lib/net462/System.IO.Pipelines.dll",
+        "lib/net462/System.IO.Pipelines.xml",
+        "lib/net8.0/System.IO.Pipelines.dll",
+        "lib/net8.0/System.IO.Pipelines.xml",
+        "lib/net9.0/System.IO.Pipelines.dll",
+        "lib/net9.0/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.10.0.7.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Encodings.Web/10.0.7": {
+      "sha512": "WUH+viO8VDG8NpFKvOBwpeyKUiPOMz3kQpA6AKCD4b2NG1pBhyC4AwTb357iZmTxZDnkM4IsFnvzN8W8OKmsHg==",
+      "type": "package",
+      "path": "system.text.encodings.web/10.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Text.Encodings.Web.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
+        "lib/net10.0/System.Text.Encodings.Web.dll",
+        "lib/net10.0/System.Text.Encodings.Web.xml",
+        "lib/net462/System.Text.Encodings.Web.dll",
+        "lib/net462/System.Text.Encodings.Web.xml",
+        "lib/net8.0/System.Text.Encodings.Web.dll",
+        "lib/net8.0/System.Text.Encodings.Web.xml",
+        "lib/net9.0/System.Text.Encodings.Web.dll",
+        "lib/net9.0/System.Text.Encodings.Web.xml",
+        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
+        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net10.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net10.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.xml",
+        "runtimes/wasi/lib/net10.0/System.Text.Encodings.Web.dll",
+        "runtimes/wasi/lib/net10.0/System.Text.Encodings.Web.xml",
+        "runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll",
+        "runtimes/win/lib/net9.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.10.0.7.nupkg.sha512",
+        "system.text.encodings.web.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Json/10.0.7": {
+      "sha512": "F8Pu2QLUMeniVbtiyk7n7LCfFYxlcJ8ASaSwglJyq6dxa34iCQrikQszsgJClIJWuSWjcyhKkV7daAzYJqeVwA==",
+      "type": "package",
+      "path": "system.text.json/10.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "buildTransitive/net461/System.Text.Json.targets",
+        "buildTransitive/net462/System.Text.Json.targets",
+        "buildTransitive/net8.0/System.Text.Json.targets",
+        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
+        "buildTransitive/netstandard2.0/System.Text.Json.targets",
+        "lib/net10.0/System.Text.Json.dll",
+        "lib/net10.0/System.Text.Json.xml",
+        "lib/net462/System.Text.Json.dll",
+        "lib/net462/System.Text.Json.xml",
+        "lib/net8.0/System.Text.Json.dll",
+        "lib/net8.0/System.Text.Json.xml",
+        "lib/net9.0/System.Text.Json.dll",
+        "lib/net9.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.10.0.7.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Functions/1.0.0": {
+      "type": "project",
+      "path": "../Functions/Functions.fsproj",
+      "msbuildProject": "../Functions/Functions.fsproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "FSharp.Core >= 9.0.303"
+      "FSharp.Core >= 9.0.303",
+      "FSharp.Data >= 8.1.11",
+      "Functions >= 1.0.0",
+      "System.Text.Json >= 10.0.7"
     ]
   },
   "packageFolders": {
@@ -132,7 +657,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/workspaces/Analise_Carteira_prog_funcional/Functions/Functions.fsproj": {
+              "projectPath": "/workspaces/Analise_Carteira_prog_funcional/Functions/Functions.fsproj"
+            }
+          }
         }
       },
       "restoreAuditProperties": {
@@ -151,6 +680,15 @@
             "target": "Package",
             "version": "[9.0.303, )",
             "generatePathProperty": true
+          },
+          "FSharp.Data": {
+            "target": "Package",
+            "version": "[8.1.11, )",
+            "generatePathProperty": true
+          },
+          "System.Text.Json": {
+            "target": "Package",
+            "version": "[10.0.7, )"
           }
         },
         "imports": [

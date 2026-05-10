@@ -1,10 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "Po/iHeqAUNs=",
+  "dgSpecHash": "L0d+dQy8krw=",
   "success": true,
   "projectFilePath": "/workspaces/Analise_Carteira_prog_funcional/carteiraSimulada/carteiraSimulada.fsproj",
   "expectedPackageFiles": [
-    "/home/vscode/.nuget/packages/fsharp.core/9.0.303/fsharp.core.9.0.303.nupkg.sha512"
+    "/home/vscode/.nuget/packages/fsharp.core/9.0.303/fsharp.core.9.0.303.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data/8.1.11/fsharp.data.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.csv.core/8.1.11/fsharp.data.csv.core.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.html.core/8.1.11/fsharp.data.html.core.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.http/8.1.11/fsharp.data.http.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.json.core/8.1.11/fsharp.data.json.core.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.runtime.utilities/8.1.11/fsharp.data.runtime.utilities.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.worldbank.core/8.1.11/fsharp.data.worldbank.core.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/fsharp.data.xml.core/8.1.11/fsharp.data.xml.core.8.1.11.nupkg.sha512",
+    "/home/vscode/.nuget/packages/system.io.pipelines/10.0.7/system.io.pipelines.10.0.7.nupkg.sha512",
+    "/home/vscode/.nuget/packages/system.text.encodings.web/10.0.7/system.text.encodings.web.10.0.7.nupkg.sha512",
+    "/home/vscode/.nuget/packages/system.text.json/10.0.7/system.text.json.10.0.7.nupkg.sha512"
   ],
   "logs": []
 }
