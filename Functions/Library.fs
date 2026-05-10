@@ -23,15 +23,14 @@ let private dot (a: float array) (b: float array) : float =
     Array.map2 (*) a b |> Array.sum
 
 /// Multiplica matriz (linhas x colunas) por vetor (colunas)
-/// Retorna vetor (linhas) — cada elemento é o retorno diário da carteira
 let private matVecMul (matrix: float array array) (vec: float array) : float array =
     matrix |> Array.map (fun row -> dot row vec)
 
 /// Calcula a matriz de covariância de uma matriz de retornos
 /// matrix: cada linha é um dia, cada coluna é um ativo
-let private covarianceMatrix (matrix: float array array) : float array array =
-    let n    = matrix.Length           // dias
-    let cols = matrix[0].Length        // ativos
+let covarianceMatrix (matrix: float array array) : float array array =
+    let n    = matrix.Length
+    let cols = matrix[0].Length
 
     let means =
         [| for j in 0 .. cols - 1 ->
@@ -48,7 +47,6 @@ let private covarianceMatrix (matrix: float array array) : float array array =
 // ── Funções puras de carteira ────────────────────────────────────────────────
 
 /// Calcula o retorno diário da carteira para cada dia
-/// returnsMatrix: array de dias, cada dia é array de retornos por ativo
 let portfolioDailyReturns (returnsMatrix: float array array) (weights: float array) : float array =
     matVecMul returnsMatrix weights
 
@@ -56,43 +54,48 @@ let portfolioDailyReturns (returnsMatrix: float array array) (weights: float arr
 let annualizedReturn (dailyReturns: float array) : float =
     Array.average dailyReturns * 252.0
 
-/// Volatilidade anualizada: σ_p = sqrt(w^T * C * w) * sqrt(252)
-let annualizedVolatility (returnsMatrix: float array array) (weights: float array) : float =
-    let cov    = covarianceMatrix returnsMatrix
-    let cwVec  = cov |> Array.map (fun row -> dot row weights)   // C * w
-    let wTCw   = dot weights cwVec                                // w^T * C * w
+/// Retorno médio anualizado a partir da matriz e pesos (usa média das colunas)
+let annualizedReturnFast (meanReturns: float array) (weights: float array) : float =
+    dot meanReturns weights * 252.0
+
+/// Volatilidade anualizada usando covariância pré-calculada
+let annualizedVolatilityFast (cov: float array array) (weights: float array) : float =
+    let cwVec = cov |> Array.map (fun row -> dot row weights)
+    let wTCw  = dot weights cwVec
     Math.Sqrt(wTCw) * Math.Sqrt(252.0)
 
+/// Avalia uma carteira completa — retorna PortfolioResult
+
 /// Sharpe Ratio anualizado
-/// rFree: taxa livre de risco anual (ex: 0.05 para 5%)
 let sharpeRatio (mu: float) (sigma: float) (rFree: float) : float =
     if sigma = 0.0 then Double.NegativeInfinity
     else (mu - rFree) / sigma
 
-/// Avalia uma carteira completa — retorna PortfolioResult
 let evaluatePortfolio
     (returnsMatrix : float array array)
     (rFree         : float)
     (portfolio     : Portfolio)
     : PortfolioResult =
 
-    let daily  = portfolioDailyReturns returnsMatrix portfolio.Weights
-    let mu     = annualizedReturn daily
-    let sigma  = annualizedVolatility returnsMatrix portfolio.Weights
+    let cov         = covarianceMatrix returnsMatrix
+    let meanReturns =
+        [| for j in 0 .. portfolio.Weights.Length - 1 ->
+            returnsMatrix |> Array.averageBy (fun row -> row[j]) |]
+
+    let mu     = annualizedReturnFast meanReturns portfolio.Weights
+    let sigma  = annualizedVolatilityFast cov portfolio.Weights
     let sharpe = sharpeRatio mu sigma rFree
 
     { Portfolio  = portfolio
       Return     = mu
       Volatility = sigma
       Sharpe     = sharpe }
-
 // ── Geração de pesos aleatórios válidos ─────────────────────────────────────
 
 /// Gera um vetor de pesos aleatórios que respeita:
 ///   - long-only: w_i >= 0
 ///   - soma = 1
 ///   - concentração máxima: w_i <= maxWeight
-/// Estratégia: gera valores uniformes, clipa em maxWeight e renormaliza
 let generateWeights (rng: Random) (n: int) (maxWeight: float) : float array =
     let rec generate () =
         let raw     = Array.init n (fun _ -> rng.NextDouble())
@@ -100,19 +103,17 @@ let generateWeights (rng: Random) (n: int) (maxWeight: float) : float array =
         let norm    = raw |> Array.map (fun x -> x / total)
         let clipped = norm |> Array.map (fun x -> Math.Min(x, maxWeight))
         let total2  = Array.sum clipped
-
         if total2 = 0.0 then generate ()
         else
             let final = clipped |> Array.map (fun x -> x / total2)
-            // verifica se ainda respeita após renormalização
             if final |> Array.exists (fun x -> x > maxWeight + 1e-9) then generate ()
             else final
-
     generate ()
 
 // ── Simulação de carteiras ───────────────────────────────────────────────────
 
-/// Simula N carteiras aleatórias para um conjunto de ativos e retorna a melhor
+/// Simula N carteiras para uma combinação, pré-calculando covariância e médias
+/// uma única vez — muito mais eficiente que recalcular por simulação
 let simulateBest
     (returnsMatrix : float array array)
     (tickers       : string array)
@@ -122,10 +123,24 @@ let simulateBest
     (seed          : int)
     : PortfolioResult =
 
+    let n   = tickers.Length
     let rng = Random(seed)
 
+    // Pré-calcula covariância e retornos médios — feito UMA VEZ por combinação
+    let cov         = covarianceMatrix returnsMatrix
+    let meanReturns =
+        [| for j in 0 .. n - 1 ->
+            returnsMatrix |> Array.averageBy (fun row -> row[j]) |]
+
     Array.init nSimulations (fun _ ->
-        let weights   = generateWeights rng tickers.Length maxWeight
-        let portfolio = { Tickers = tickers; Weights = weights }
-        evaluatePortfolio returnsMatrix rFree portfolio)
+        let weights = generateWeights rng n maxWeight
+
+        let mu     = annualizedReturnFast meanReturns weights
+        let sigma  = annualizedVolatilityFast cov weights
+        let sharpe = sharpeRatio mu sigma rFree
+
+        { Portfolio  = { Tickers = tickers; Weights = weights }
+          Return     = mu
+          Volatility = sigma
+          Sharpe     = sharpe })
     |> Array.maxBy (fun r -> r.Sharpe)

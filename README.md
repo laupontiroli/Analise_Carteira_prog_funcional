@@ -22,7 +22,7 @@ Onde:
 ## Abordagem
 
 - São avaliadas **todas as combinações** de 25 a 30 ativos entre os 30 do Dow Jones — totalizando **174.437 combinações**
-- Para cada combinação, são simuladas **1.000.000 carteiras aleatórias** com pesos válidos
+- Para cada combinação, são simuladas **N carteiras aleatórias** com pesos válidos (configurável via `nSimulations` no `Program.fs`)
 - A simulação é **paralelizada** via `Array.Parallel.mapi`, onde cada combinação é avaliada de forma independente
 - Todas as funções de cálculo são **puras** (sem efeitos colaterais), isolando a impureza apenas na camada de I/O
 
@@ -72,7 +72,7 @@ Analise_Carteira_prog_funcional/
 |---|---|
 | `fetchAllPrices` | Lê tickers do JSON e busca dados históricos via EODHD |
 
-O DataLoader implementa **cache em disco**: na primeira execução busca da API e salva em `cache/TICKER_start_end.json`. Nas execuções seguintes lê do cache, evitando requisições desnecessárias.
+O DataLoader implementa **cache em disco**: na primeira execução busca da API e salva em `cache/TICKER_start_end.json`. Nas execuções seguintes lê do cache, evitando requisições desnecessárias e o limite de chamadas da API.
 
 ---
 
@@ -86,7 +86,7 @@ O DataLoader implementa **cache em disco**: na primeira execução busca da API 
 ## Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/Analise_Carteira_prog_funcional.git
+git clone https://github.com/laupontiroli/Analise_Carteira_prog_funcional.git
 cd Analise_Carteira_prog_funcional
 dotnet restore
 ```
@@ -101,6 +101,8 @@ Defina sua chave da API como variável de ambiente:
 export EODHD_API_KEY="sua_chave_aqui"
 ```
 
+> A pasta `cache/` é criada automaticamente na primeira execução e fica ignorada pelo `.gitignore`.
+
 ---
 
 ## Como Rodar
@@ -110,12 +112,25 @@ cd carteiraSimulada
 dotnet run
 ```
 
+### Parâmetros configuráveis no `Program.fs`
+
+| Parâmetro | Padrão | Descrição |
+|---|---|---|
+| `startDate` | `2025-07-01` | Início do período de treino |
+| `endDate` | `2025-12-31` | Fim do período de treino |
+| `rFree` | `0.05` | Taxa livre de risco anual |
+| `maxWeight` | `0.20` | Concentração máxima por ativo |
+| `nSimulations` | `1_000` | Simulações por combinação |
+| `minSelect` | `25` | Mínimo de ativos por carteira |
+| `maxSelect` | `30` | Máximo de ativos por carteira |
+| `tickersFile` | `dow30.json` | Arquivo de tickers (`custom_tickers.json` para customizado) |
+
 ### Exemplo de output
 
 ```
 Buscando dados de 2025-07-01 a 2025-12-31...
-  [api]   AAPL
-  [api]   MSFT
+  [cache] AAPL
+  [cache] MSFT
   ...
 Dados carregados: 30 ativos
 Matriz de retornos: 127 dias x 30 ativos
@@ -142,7 +157,7 @@ Sharpe Ratio       : 1.3104
 Edite o arquivo `custom_tickers.json` na raiz do projeto e troque no `Program.fs`:
 
 ```fsharp
-let tickersFile = "custom_tickers.json"
+let tickersFile = Path.Combine(baseDir, "custom_tickers.json")
 ```
 
 ---
