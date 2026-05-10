@@ -13,6 +13,7 @@
     <SourceRoot Include="/home/vscode/.nuget/packages/" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSystem_Text_Json Condition=" '$(PkgSystem_Text_Json)' == '' ">/home/vscode/.nuget/packages/system.text.json/10.0.7</PkgSystem_Text_Json>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/home/vscode/.nuget/packages/fsharp.core/9.0.303</PkgFSharp_Core>
     <PkgFSharp_Data Condition=" '$(PkgFSharp_Data)' == '' ">/home/vscode/.nuget/packages/fsharp.data/8.1.11</PkgFSharp_Data>
   </PropertyGroup>

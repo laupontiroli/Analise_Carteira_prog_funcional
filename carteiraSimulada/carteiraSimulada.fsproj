@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-  <Content Include="../dow30.json" CopyToOutputDirectory="Always" />
-  <Content Include="../custom_tickers.json" CopyToOutputDirectory="Always" />
+  <Content Include="../dow30.json" CopyToOutputDirectory="Always" Link="dow30.json" />
+  <Content Include="../custom_tickers.json" CopyToOutputDirectory="Always" Link="custom_tickers.json" />
 </ItemGroup>
 
 </Project>

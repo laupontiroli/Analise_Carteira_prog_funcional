@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Functions</name></assembly>
+<members>
+<member name="M:Functions.Library.simulateBest(System.Double[][],System.String[],System.Double,System.Double,System.Int32,System.Int32)">
+<summary>
+ Simula N carteiras aleatórias para um conjunto de ativos e retorna a melhor
+</summary>
+</member>
+<member name="M:Functions.Library.generateWeights(System.Random,System.Int32,System.Double)">
+<summary>
+ Gera um vetor de pesos aleatórios que respeita:
+   - long-only: w_i &gt;= 0
+   - soma = 1
+   - concentração máxima: w_i &lt;= maxWeight
+ Estratégia: gera valores uniformes, clipa em maxWeight e renormaliza
+</summary>
+</member>
+<member name="M:Functions.Library.evaluatePortfolio(System.Double[][],System.Double,Functions.Library.Portfolio)">
+<summary>
+ Avalia uma carteira completa — retorna PortfolioResult
+</summary>
+</member>
+<member name="M:Functions.Library.sharpeRatio(System.Double,System.Double,System.Double)">
+<summary>
+ Sharpe Ratio anualizado
+ rFree: taxa livre de risco anual (ex: 0.05 para 5%)
+</summary>
+</member>
+<member name="M:Functions.Library.annualizedVolatility(System.Double[][],System.Double[])">
+<summary>
+ Volatilidade anualizada: σ_p = sqrt(w^T * C * w) * sqrt(252)
+</summary>
+</member>
+<member name="M:Functions.Library.annualizedReturn(System.Double[])">
+<summary>
+ Retorno médio anualizado da carteira (252 dias úteis)
+</summary>
+</member>
+<member name="M:Functions.Library.portfolioDailyReturns(System.Double[][],System.Double[])">
+<summary>
+ Calcula o retorno diário da carteira para cada dia
+ returnsMatrix: array de dias, cada dia é array de retornos por ativo
+</summary>
+</member>
+<member name="M:Functions.Library.covarianceMatrix(System.Double[][])">
+<summary>
+ Calcula a matriz de covariância de uma matriz de retornos
+ matrix: cada linha é um dia, cada coluna é um ativo
+</summary>
+</member>
+<member name="M:Functions.Library.matVecMul(System.Double[][],System.Double[])">
+<summary>
+ Multiplica matriz (linhas x colunas) por vetor (colunas)
+ Retorna vetor (linhas) — cada elemento é o retorno diário da carteira
+</summary>
+</member>
+<member name="M:Functions.Library.dot(System.Double[],System.Double[])">
+<summary>
+ Produto escalar entre dois vetores
+</summary>
+</member>
+</members>
+</doc>

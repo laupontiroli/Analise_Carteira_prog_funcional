@@ -1,0 +1,14 @@
+/workspaces/Analise_Carteira_prog_funcional/Functions/bin/Debug/net9.0/Functions.deps.json
+/workspaces/Analise_Carteira_prog_funcional/Functions/bin/Debug/net9.0/Functions.dll
+/workspaces/Analise_Carteira_prog_funcional/Functions/bin/Debug/net9.0/Functions.pdb
+/workspaces/Analise_Carteira_prog_funcional/Functions/bin/Debug/net9.0/Functions.xml
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.fsproj.AssemblyReference.cache
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.AssemblyInfoInputs.cache
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.AssemblyInfo.fs
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.fsproj.CoreCompileInputs.cache
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.sourcelink.json
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.dll
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/refint/Functions.dll
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.xml
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/Functions.pdb
+/workspaces/Analise_Carteira_prog_funcional/Functions/obj/Debug/net9.0/ref/Functions.dll

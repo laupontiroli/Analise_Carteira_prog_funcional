@@ -688,7 +688,8 @@
           },
           "System.Text.Json": {
             "target": "Package",
-            "version": "[10.0.7, )"
+            "version": "[10.0.7, )",
+            "generatePathProperty": true
           }
         },
         "imports": [

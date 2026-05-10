@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("carteiraSimulada")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9972f6a4a9e99d2f58a6d0ee68aac07ab3f8a523")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+232b82f78891d47184e1952da141e7556e2cfd2e")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("carteiraSimulada")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("carteiraSimulada")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
