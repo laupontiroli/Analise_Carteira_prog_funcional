@@ -52,6 +52,7 @@ Analise_Carteira_prog_funcional/
 │   └── carteiraSimulada.fsproj
 ├── dow30.json            # Tickers oficiais do Dow Jones
 ├── custom_tickers.json   # Tickers customizados pelo usuário
+├── results.md            # Resultados da última simulação
 └── README.md
 ```
 
@@ -61,18 +62,40 @@ Analise_Carteira_prog_funcional/
 |---|---|
 | `portfolioDailyReturns` | Retorno diário da carteira: `r_p = R * w` |
 | `annualizedReturn` | Média dos retornos diários × 252 |
-| `annualizedVolatility` | `sqrt(wᵀ * C * w) * sqrt(252)` |
+| `annualizedReturnFast` | Retorno anualizado via produto escalar com médias pré-calculadas |
+| `annualizedVolatilityFast` | Volatilidade com covariância pré-calculada: `sqrt(wᵀ * C * w) * sqrt(252)` |
 | `sharpeRatio` | `(μ - r_free) / σ` |
+| `evaluatePortfolio` | Avalia uma carteira completa retornando todas as métricas |
 | `generateWeights` | Gera pesos aleatórios válidos (long-only, soma=1, max 20%) |
-| `simulateBest` | Roda N simulações e retorna a carteira com maior Sharpe |
+| `simulateBest` | Pré-calcula covariância uma vez e roda N simulações, retornando a melhor |
 
 ### `DataLoader.fs` — I/O
 
 | Função | Descrição |
 |---|---|
-| `fetchAllPrices` | Lê tickers do JSON e busca dados históricos via EODHD |
+| `fetchAllPrices` | Lê tickers do JSON e busca dados históricos via EODHD em paralelo |
 
 O DataLoader implementa **cache em disco**: na primeira execução busca da API e salva em `cache/TICKER_start_end.json`. Nas execuções seguintes lê do cache, evitando requisições desnecessárias e o limite de chamadas da API.
+
+---
+
+## Resultados
+
+Os resultados completos estão em [results.md](results.md). Abaixo um resumo:
+
+### Melhor Carteira Encontrada — Treino (2H 2025)
+
+**25 ativos:** AAPL, AMGN, AXP, BA, CAT, CRM, CSCO, CVX, DIS, DOW, GS, HD, INTC, JNJ, JPM, KO, MCD, MMM, MRK, MSFT, NKE, TRV, UNH, VZ, WMT
+
+| Métrica | Treino (2H 2025) | Backtest (Q1 2026) |
+|---------|-----------------|-------------------|
+| Retorno anualizado | +35.06% | +21.21% |
+| Volatilidade anual | 9.31% | 12.59% |
+| Sharpe Ratio | 3.2284 | 1.2880 |
+
+> A carteira manteve retorno positivo no período de teste, com Sharpe acima de 1 — indicando que a estratégia generalizou razoavelmente para fora do período de treino.
+
+**Tempo de simulação:** 339 segundos (~5.6 minutos) com paralelismo em 174.437 combinações.
 
 ---
 
@@ -101,7 +124,7 @@ Defina sua chave da API como variável de ambiente:
 export EODHD_API_KEY="sua_chave_aqui"
 ```
 
-> A pasta `cache/` é criada automaticamente na primeira execução e fica ignorada pelo `.gitignore`.
+> A pasta `cache/` é criada automaticamente na primeira execução e está no `.gitignore`.
 
 ---
 
@@ -109,7 +132,12 @@ export EODHD_API_KEY="sua_chave_aqui"
 
 ```bash
 cd carteiraSimulada
+
+# Apenas otimização (gera results.md com treino)
 dotnet run
+
+# Otimização + backtest no Q1 2026 (gera results.md completo)
+dotnet run -- --backtest
 ```
 
 ### Parâmetros configuráveis no `Program.fs`
@@ -123,38 +151,11 @@ dotnet run
 | `nSimulations` | `1_000` | Simulações por combinação |
 | `minSelect` | `25` | Mínimo de ativos por carteira |
 | `maxSelect` | `30` | Máximo de ativos por carteira |
-| `tickersFile` | `dow30.json` | Arquivo de tickers (`custom_tickers.json` para customizado) |
-
-### Exemplo de output
-
-```
-Buscando dados de 2025-07-01 a 2025-12-31...
-  [cache] AAPL
-  [cache] MSFT
-  ...
-Dados carregados: 30 ativos
-Matriz de retornos: 127 dias x 30 ativos
-Total de combinações (C(30,25) a C(30,30)): 174437
-Iniciando simulação paralelizada...
-Simulação concluída em 42.30 segundos
-
-====== MELHOR CARTEIRA ======
-Número de ativos  : 25
-Ativos: AAPL, AMGN, ...
-
-Pesos:
-  AAPL   18.45%
-  AMGN   12.30%
-  ...
-
-Retorno anualizado : 0.2341 (23.41%)
-Volatilidade anual : 0.1420 (14.20%)
-Sharpe Ratio       : 1.3104
-```
+| `tickersFile` | `dow30.json` | Arquivo de tickers |
 
 ### Usando tickers customizados
 
-Edite o arquivo `custom_tickers.json` na raiz do projeto e troque no `Program.fs`:
+Edite o arquivo `custom_tickers.json` e troque no `Program.fs`:
 
 ```fsharp
 let tickersFile = Path.Combine(baseDir, "custom_tickers.json")
@@ -167,7 +168,7 @@ let tickersFile = Path.Combine(baseDir, "custom_tickers.json")
 - **Funções puras** eliminam efeitos colaterais e tornam o código trivialmente paralelizável
 - **Ausência de estado compartilhado** entre combinações permite uso seguro de `Array.Parallel.mapi`
 - **Pipeline funcional** (`|>`) torna o fluxo de dados explícito e legível
-- O padrão `map → filter → reduce` se encaixa naturalmente no problema de simulação em larga escala
+- A covariância é calculada **uma vez por combinação** e reutilizada nas N simulações, padrão natural em programação funcional de evitar recomputação
 
 ---
 
@@ -185,4 +186,5 @@ let tickersFile = Path.Combine(baseDir, "custom_tickers.json")
 
 Os dados históricos são obtidos via [EODHD Historical Data API](https://eodhd.com/financial-apis/stock-market-data/), endpoint `/api/eod/{TICKER}.US`.
 
-Período utilizado: **01/07/2025 a 31/12/2025** (segundo semestre de 2025).
+- **Treino:** 01/07/2025 a 31/12/2025 (127 dias úteis)
+- **Teste:** 01/01/2026 a 31/03/2026
